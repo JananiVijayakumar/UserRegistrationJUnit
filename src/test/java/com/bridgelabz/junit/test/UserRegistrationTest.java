@@ -9,8 +9,15 @@ public class UserRegistrationTest {
     UserRegistration userRegistration = new UserRegistration();
     @Test
     public void firstName(){
-        String firstName = "Jana";
+        String firstName = "Janani";
         boolean check = userRegistration.checkFirstNameIsCorrect(firstName);
+        assertTrue(check);
+    }
+
+    @Test
+    public void lastName(){
+        String lastName = "Srim";
+        boolean check = userRegistration.checkLastNameIsCorrect(lastName);
         assertTrue(check);
     }
 }
