@@ -15,4 +15,13 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid First name\n FirstName should have Start with only one Capital\nFirstname should have atleast 3 characters");
         return check;
     }
+
+    public static boolean checkLastNameIsCorrect(String lastName) {
+        boolean check = Pattern.matches("^[A-Z]{1}+[a-z]{3,}+$", lastName);
+        if (check)
+            System.out.println("lastName is correct");
+        else
+            System.out.println("Please Enter a Valid last name\n lastName should have Start with only one Capital\nlastname should have atleast 3 characters");
+        return check;
+    }
 }
