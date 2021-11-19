@@ -51,4 +51,13 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters");
         return check;
     }
+
+    public static boolean checkPassWordRule2IsCorrect(String passWordRule2) {
+        boolean check = Pattern.matches("[A-Z]{1}[a-z]{7,}", passWordRule2);
+        if (check)
+            System.out.println("PassWord Rule 2 is correct");
+        else
+            System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters\nPassWord should have 1 UpperCase");
+        return check;
+    }
 }
