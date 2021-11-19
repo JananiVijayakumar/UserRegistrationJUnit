@@ -60,4 +60,22 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters\nPassWord should have 1 UpperCase");
         return check;
     }
+
+    public static boolean checkPassWordRule3IsCorrect(String passWordRule3) {
+        boolean check = Pattern.matches("[A-Z]{1}[a-z]{6,}[0-9]{1}", passWordRule3);
+        if (check)
+            System.out.println("PassWord Rule 3 is correct");
+        else
+            System.out.println("Please Enter a Valid Password\nPassWord should be minimum 8 characters\nPassWord should have 1 UpperCase\nPassWord should have 1 numeric value");
+        return check;
+    }
+
+    public static boolean checkPassWordRule4IsCorrect(String passWordRule4) {
+        boolean check = Pattern.matches("[A-Z]{1}[a-z]{6,}[0-9]{1}[!@#~$%^&*_+-=|]{1}", passWordRule4);
+        if (check)
+            System.out.println("PassWord Rule 4 is correct");
+        else
+            System.out.println("Please Enter a Valid Password\nPassWord should be minimum 8 characters\nPassWord should have 1 UpperCase\nPassWord should have 1 numeric value\nPassWord should have 1 special character");
+        return check;
+    }
 }

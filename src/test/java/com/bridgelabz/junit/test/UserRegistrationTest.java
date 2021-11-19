@@ -35,15 +35,29 @@ public class UserRegistrationTest {
 
     @Test
     public void passWordRule1(){
-        String mobileNumber = "jAnanisr";
-        boolean check = userRegistration.checkPassWordRule1IsCorrect(mobileNumber);
+        String passWord = "jAnanisr";
+        boolean check = userRegistration.checkPassWordRule1IsCorrect(passWord);
         assertTrue(check);
     }
 
     @Test
     public void passWordRule2(){
-        String mobileNumber = "Jjanansri";
-        boolean check = userRegistration.checkPassWordRule2IsCorrect(mobileNumber);
+        String passWord1 = "Jjanansri";
+        boolean check = userRegistration.checkPassWordRule2IsCorrect(passWord1);
+        assertTrue(check);
+    }
+
+    @Test
+    public void passWordRule3(){
+        String passWord2 = "Jjananri1";
+        boolean check = userRegistration.checkPassWordRule3IsCorrect(passWord2);
+        assertTrue(check);
+    }
+
+    @Test
+    public void passWordRule4(){
+        String passWord3 = "Janansri1@";
+        boolean check = userRegistration.checkPassWordRule4IsCorrect(passWord3);
         assertTrue(check);
     }
 }
