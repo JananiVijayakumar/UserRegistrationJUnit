@@ -42,4 +42,13 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid Mobile Num\nMobile number format should be 91 9533182605");
         return check;
     }
+
+    public static boolean checkPassWordRule1IsCorrect(String passWordRule1) {
+        boolean check = Pattern.matches("[a-zA-Z]{8,}", passWordRule1);
+        if (check)
+            System.out.println("PassWord Rule 1 is correct");
+        else
+            System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters");
+        return check;
+    }
 }

@@ -2,9 +2,7 @@ package com.bridgelabz.junit.test;
 
 import com.bridgelabz.junit.UserRegistration;
 import org.junit.Test;
-
 import static junit.framework.TestCase.assertTrue;
-
 public class UserRegistrationTest {
     UserRegistration userRegistration = new UserRegistration();
     @Test
@@ -32,6 +30,13 @@ public class UserRegistrationTest {
     public void mobileNumber(){
         String mobileNumber = "91 9876543210";
         boolean check = userRegistration.checkMobileNumberFormatIsCorrect(mobileNumber);
+        assertTrue(check);
+    }
+
+    @Test
+    public void passWordRule1(){
+        String mobileNumber = "jAnanisr";
+        boolean check = userRegistration.checkPassWordRule1IsCorrect(mobileNumber);
         assertTrue(check);
     }
 }
