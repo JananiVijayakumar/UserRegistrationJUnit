@@ -108,4 +108,12 @@ public class UserRegistrationTest {
         check = userRegistration.checkEmailIsCorrect(eMail1);
         assertTrue(check);
     }
+
+    @Test
+    public void emailUniversal(){
+        String email = "Janansri1@bl.co";
+        boolean check = UserRegistration.emailUniversal(email);
+        assertTrue(check);
+        System.out.println("...............................................................");
+    }
 }
