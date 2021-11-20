@@ -111,7 +111,15 @@ public class UserRegistrationTest {
 
     @Test
     public void emailUniversal(){
-        String email = "Janansri1@bl.co";
+        String email = "abc@yahoo.com";
+        email = "abc-100@yahoo.com";
+        email = "abc.100@yahoo.com";
+        email = "abc111@abc.com";
+        email = "abc-100@abc.net";
+        email = "abc.100@abc.com.au";
+        email = "abc@1.com";
+        email = "abc@gmail.com.com";
+        email = "abc+100@gmail.com.com";
         boolean check = UserRegistration.emailUniversal(email);
         assertTrue(check);
         System.out.println("...............................................................");
