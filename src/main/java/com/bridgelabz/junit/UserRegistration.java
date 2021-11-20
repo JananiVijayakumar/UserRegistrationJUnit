@@ -78,4 +78,13 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid Password\nPassWord should be minimum 8 characters\nPassWord should have 1 UpperCase\nPassWord should have 1 numeric value\nPassWord should have 1 special character");
         return check;
     }
+
+    public static boolean emailUniversal(String eMail) {
+        boolean check = Pattern.matches("[a-zA-Z0-9_.]*[-]*[+]*[0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+", eMail);
+        if (check)
+            System.out.println("Email is correct!!");
+        else
+            System.out.println("Please Enter a Valid Email with Only \nexample.abc@bl.co.in");
+        return check;
+    }
 }
