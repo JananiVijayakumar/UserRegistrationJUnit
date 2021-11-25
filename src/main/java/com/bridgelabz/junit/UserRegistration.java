@@ -2,89 +2,115 @@ package com.bridgelabz.junit;
 /*
 author : JananiVijayaKumar
 Date : 16/11/2021
-Desc : Test User Registeration
+Desc : Test User Registeration and Analyse The Mood
 */
-
+import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistration {
-    public static boolean checkFirstNameIsCorrect(String firstName) {
-        boolean check = Pattern.matches("^[A-Z]{1}+[a-z]{3,}+$", firstName);
-        if (check)
-            System.out.println("FirstName is correct");
-        else
-            System.out.println("Please Enter a Valid First name\n FirstName should have Start with only one Capital\nFirstname should have atleast 3 characters");
-        return check;
+    static Scanner sc = new Scanner(System.in);
+
+    public String FirstName(String firstName) throws UserRegistrationException {
+        String regex = "^[A-Z]{1}+[a-z]{3,}+$";
+        try {
+            Pattern pattern = Pattern.compile(regex);
+            if (firstName.isEmpty())
+                throw new UserRegistrationException("Please Enter a Valid First name");
+            Matcher matcher = pattern.matcher(firstName);
+            if (matcher.matches()) {
+                System.out.println("Valid Firstname!!");
+                System.out.println(analyseMood("HAPPY"));
+                return "HAPPY";
+            } else
+                return "SAD";
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("Please Enter a Valid First name");
+        }
+    }
+        public String LastName (String lastName) throws UserRegistrationException {
+            String regex = "^[A-Z]{1}+[a-z]{3,}+$";
+            try {
+                Pattern pattern = Pattern.compile(regex);
+                if (lastName.isEmpty())
+                    throw new UserRegistrationException("Please Enter a Valid Last name");
+                Matcher matcher = pattern.matcher(lastName);
+                if (matcher.matches()) {
+                    System.out.println("Valid Lastname!!");
+                    System.out.println(analyseMood("HAPPY"));
+                    return "HAPPY";
+                } else
+                    return "SAD";
+            } catch (UserRegistrationException e) {
+                throw new UserRegistrationException("Please Enter a Valid Last name");
+            }
+        }
+    public String MobileNumber(String mobile) throws UserRegistrationException {
+        String regex = "^91\\\\s[6789][0-9]{9}";
+        try {
+            Pattern pattern = Pattern.compile(regex);
+            if (mobile.isEmpty())
+                throw new UserRegistrationException("Please Enter a Valid Mobile Number");
+            Matcher matcher = pattern.matcher(mobile);
+            if (matcher.matches()) {
+                System.out.println("Valid Mobile Number!!");
+                System.out.println(analyseMood("HAPPY"));
+                return "HAPPY";
+            } else
+                return "SAD";
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("Please Enter a Valid Mobile Number");
+        }
+    }
+    public String Email (String email) throws UserRegistrationException {
+        String regex = "^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*";
+        try {
+            Pattern pattern = Pattern.compile(regex);
+            if (email.isEmpty())
+                throw new UserRegistrationException("Please Enter a Valid Email");
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                System.out.println("Valid Email!!");
+                System.out.println(analyseMood("HAPPY"));
+                return "HAPPY";
+            } else
+                return "SAD";
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("Please Enter a Valid Email");
+        }
+    }
+    public String PassWord(String password) throws UserRegistrationException {
+        String regex = "[a-zA-Z]{8,}";
+        try {
+            Pattern pattern = Pattern.compile(regex);
+            if (password.isEmpty())
+                throw new UserRegistrationException("Please Enter a Valid PassWord");
+            Matcher matcher = pattern.matcher(password);
+            if (matcher.matches()) {
+                System.out.println("Valid PassWord!!");
+                System.out.println(analyseMood("HAPPY"));
+                return "HAPPY";
+            } else
+                return "SAD";
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("Please Enter a Valid PassWord");
+        }
     }
 
-    public static boolean checkLastNameIsCorrect(String lastName) {
-        boolean check = Pattern.matches("^[A-Z]{1}+[a-z]{3,}+$", lastName);
-        if (check)
-            System.out.println("lastName is correct");
-        else
-            System.out.println("Please Enter a Valid last name\n lastName should have Start with only one Capital\nlastname should have atleast 3 characters");
-        return check;
-    }
+        public static String analyseMood (String message){
+            if (message.contains("HAPPY")) {
+                return "Registration is Successful!!";
+            } else {
+                return "Registration is Failed!!";
+            }
+        }
 
-    public static boolean checkEmailIsCorrect(String eMail) {
-        boolean check = Pattern.matches("^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*", eMail);
-        if (check)
-            System.out.println("Email is correct");
-        else
-            System.out.println("Please Enter a Valid Email\n EmailId should be like abc@bl.co.in\n");
-        return check;
-    }
 
-    public static boolean checkMobileNumberFormatIsCorrect(String mobileNumber) {
-        boolean check = Pattern.matches("^91\\s[6789][0-9]{9}", mobileNumber);
-        if (check)
-            System.out.println("Mobile Number format is correct");
-        else
-            System.out.println("Please Enter a Valid Mobile Num\nMobile number format should be 91 9533182605");
-        return check;
+        public static void main (String[]args) throws UserRegistrationException {
+            UserRegistration userRegistration = new UserRegistration();
+            userRegistration.FirstName(sc.next());
+            userRegistration.LastName(sc.next());
+            userRegistration.MobileNumber(sc.next());
+            userRegistration.Email(sc.next());
+            userRegistration.PassWord(sc.next());
+        }
     }
-
-    public static boolean checkPassWordRule1IsCorrect(String passWordRule1) {
-        boolean check = Pattern.matches("[a-zA-Z]{8,}", passWordRule1);
-        if (check)
-            System.out.println("PassWord Rule 1 is correct");
-        else
-            System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters");
-        return check;
-    }
-
-    public static boolean checkPassWordRule2IsCorrect(String passWordRule2) {
-        boolean check = Pattern.matches("[A-Z]{1}[a-z]{7,}", passWordRule2);
-        if (check)
-            System.out.println("PassWord Rule 2 is correct");
-        else
-            System.out.println("Please Enter a Valid Password\nPassWord should be 8 characters\nPassWord should have 1 UpperCase");
-        return check;
-    }
-
-    public static boolean checkPassWordRule3IsCorrect(String passWordRule3) {
-        boolean check = Pattern.matches("[A-Z]{1}[a-z]{6,}[0-9]{1}", passWordRule3);
-        if (check)
-            System.out.println("PassWord Rule 3 is correct");
-        else
-            System.out.println("Please Enter a Valid Password\nPassWord should be minimum 8 characters\nPassWord should have 1 UpperCase\nPassWord should have 1 numeric value");
-        return check;
-    }
-
-    public static boolean checkPassWordRule4IsCorrect(String passWordRule4) {
-        boolean check = Pattern.matches("[A-Z]{1}[a-z]{6,}[0-9]{1}[!@#~$%^&*_+-=|]{1}", passWordRule4);
-        if (check)
-            System.out.println("PassWord Rule 4 is correct");
-        else
-            System.out.println("Please Enter a Valid Password\nPassWord should be minimum 8 characters\nPassWord should have 1 UpperCase\nPassWord should have 1 numeric value\nPassWord should have 1 special character");
-        return check;
-    }
-
-    public static boolean emailUniversal(String eMail) {
-        boolean check = Pattern.matches("[a-zA-Z0-9_.]*[-]*[+]*[0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+", eMail);
-        if (check)
-            System.out.println("Email is correct!!");
-        else
-            System.out.println("Please Enter a Valid Email with Only \nexample.abc@bl.co.in");
-        return check;
-    }
-}
